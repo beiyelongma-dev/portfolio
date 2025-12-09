@@ -29,7 +29,7 @@ html, body {
     font-family: "Noto Sans JP", sans-serif;
 }
 
-/* スクロール禁止時 */
+/* スクロール禁止 */
 .no-scroll {
     overflow: hidden;
     height: 100vh;
@@ -51,7 +51,9 @@ html, body {
     object-fit: cover;
 }
 
-/* ページフェード */
+/* =========================================
+   ページフェード
+========================================= */
 #page-fade-layer {
     position: fixed;
     inset: 0;
@@ -157,37 +159,50 @@ html, body {
 }
 
 /* =========================================
-   HERO 正常化（縦横比が崩れない版）
+   HERO – PC・iPhone 完全対応版
 ========================================= */
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh;          /* ★ 画面ピッタリに */
+    height: 100vh;      /* PC */
     overflow: hidden;
     background: #050609;
 }
 
-/* 不要なスケール拡大を削除（これで比率崩れ解消） */
-.hero-video-wrap {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    animation: heroZoom 6s ease-out forwards;
-}
-
-.hero-video-wrap video {
+#heroVideo {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
 
-    transform: translate(-50%, -50%);
+/* iPhone Safari 修正版 */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        height: 100svh !important;
+    }
+    #heroVideo {
+        width: 100vw !important;
+        height: 100svh !important;
+        min-width: 100vw !important;
+        min-height: 100svh !important;
+        object-fit: cover !important;
+    }
+}
 
-    object-fit: cover;      /* ★ 比率維持して埋める */
-    min-width: 100%;        /* ★ 映像が小さくならない */
-    min-height: 100%;
+/* Android などスマホ全般 */
+@media (max-width: 768px) {
+    .hero {
+        height: 100svh;
+    }
+    #heroVideo {
+        width: 100vw;
+        height: 100svh;
+        object-fit: cover;
+    }
 }
 
 /* 暗さオーバーレイ */
@@ -206,8 +221,8 @@ html, body {
             rgba(3,4,8,0.5) 100%
         );
     mix-blend-mode: multiply;
-    transition: opacity 1.2s ease;
     opacity: 0;
+    transition: opacity 1.2s ease;
 }
 
 /* タイトル配置 */
@@ -223,12 +238,10 @@ html, body {
     margin: 0 auto;
 }
 
-/* タイトル */
 .hero-eyebrow {
     font-size: 0.8rem;
     letter-spacing: 0.35em;
     color: var(--accent-gold);
-    margin-bottom: 12px;
 }
 
 #main-title {
@@ -256,29 +269,8 @@ html, body {
     transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-/* シャイン */
-.shine {
-    position: absolute;
-    right: -40px;
-    top: 50%;
-    width: 30px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
-    transform: translateY(-50%);
-    overflow: hidden;
-}
-.shine::before {
-    content: "";
-    position: absolute;
-    width: 40%;
-    height: 100%;
-    background: radial-gradient(circle, #fff 0%, #c9a36c 50%, transparent 80%);
-    left: -60%;
-    animation: shineMove 3.6s linear infinite 1.6s;
-}
-
 /* =========================================
-   SCROLL バー
+   SCROLL アニメ
 ========================================= */
 .hero-scroll {
     position: absolute;
@@ -290,9 +282,7 @@ html, body {
     font-size: 0.75rem;
     letter-spacing: 0.28em;
 }
-
 .hero-scroll-line {
-    position: relative;
     margin: 8px auto 0;
     width: 2px;
     height: 40px;
@@ -300,11 +290,9 @@ html, body {
     border-radius: 3px;
     overflow: hidden;
 }
-
 .hero-scroll-line::before {
     content: "";
     position: absolute;
-    left: 0;
     width: 100%;
     height: 12px;
     background: var(--accent-gold);
@@ -314,10 +302,8 @@ html, body {
 }
 
 /* =========================================
-   SECTION・WORKS・PROFILE
+   SECTION
 ========================================= */
-
-/* Section 共通 */
 .section {
     padding: 80px 24px;
 }
@@ -328,14 +314,8 @@ html, body {
     background: radial-gradient(circle at top,#0c0f1c,#020307 70%,#000);
 }
 
-.section-inner.narrow {
-    max-width: var(--max-width-narrow);
-    margin: 0 auto;
-}
-.section-inner.wide {
-    max-width: var(--max-width-wide);
-    margin: 0 auto;
-}
+.section-inner.narrow { max-width: var(--max-width-narrow); margin: 0 auto; }
+.section-inner.wide   { max-width: var(--max-width-wide);  margin: 0 auto; }
 
 .section-label {
     font-family: "Playfair Display", serif;
@@ -352,7 +332,9 @@ html, body {
     margin: 0 0 10px;
 }
 
-/* WORKS カード */
+/* =========================================
+   WORKS
+========================================= */
 .work-card {
     display: grid;
     grid-template-columns: 2fr 1.5fr;
@@ -361,6 +343,7 @@ html, body {
     padding-bottom: 56px;
     border-bottom: 1px solid var(--border-soft);
 }
+
 .work-link {
     display: contents;
     text-decoration: none;
@@ -398,12 +381,19 @@ html, body {
     color: #dddde4;
 }
 
-/* PROFILE */
+#works .work-media img.tall-img {
+    width: 45% !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+/* =========================================
+   PROFILE
+========================================= */
 .profile-title {
     text-align: center;
     margin-bottom: 50px;
 }
-
 .profile-box {
     display: grid;
     grid-template-columns: 1.2fr 2fr;
@@ -421,7 +411,6 @@ html, body {
     width: 100%;
     border-radius: 14px;
 }
-
 .profile-name {
     font-family: "Playfair Display", serif;
     font-size: 1.25rem;
@@ -433,7 +422,9 @@ html, body {
     color: #e2e2ea;
 }
 
-/* フッター */
+/* =========================================
+   フッター
+========================================= */
 .site-footer {
     background: #020308;
     padding: 24px;
@@ -451,39 +442,6 @@ html, body {
 }
 
 /* =========================================
-   アニメーション
-========================================= */
-@keyframes heroZoom {
-    0% { transform: scale(1.08); }
-    80% { transform: scale(1.02); }
-    100% { transform: scale(1.04); }
-}
-
-@keyframes shineMove {
-    0% { left: -60%; }
-    100% { left: 120%; }
-}
-
-@keyframes scrollLine {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(140%);
-    }
-}
-
-/* =========================================
-   縦長画像（WORKS）
-========================================= */
-#works .work-media img.tall-img {
-    width: 45% !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    display: block !important;
-}
-
-/* =========================================
    PHILOSOPHY 背景動画
 ========================================= */
 #creation-philosophy.section-dark {
@@ -498,27 +456,11 @@ html, body {
     z-index: -1;
     opacity: 0.22;
     pointer-events: none;
-    overflow: hidden;
 }
-
 #creation-philosophy .philo-bg-video video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-#creation-philosophy::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 0;
-    pointer-events: none;
-}
-
-#creation-philosophy .section-inner {
-    position: relative;
-    z-index: 2;
 }
 
 /* =========================================
@@ -537,76 +479,11 @@ html, body {
     .main-nav { display: none; }
     .section { padding: 60px 20px; }
 }
+
 /* =========================================
-   ★ 背景動画が絶対表示されるパッチ
+   アニメーション
 ========================================= */
-#creation-philosophy.section-dark {
-    background: transparent !important;
+@keyframes scrollLine {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(140%); }
 }
-
-#creation-philosophy {
-    position: relative !important;
-    overflow: hidden !important;
-    z-index: 0 !important;
-}
-
-#creation-philosophy .philo-bg-video {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: -1 !important;
-    opacity: 0.25 !important;
-    display: block !important;
-}
-
-#creation-philosophy .philo-bg-video video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-}
-
-#creation-philosophy::before {
-    background: rgba(0,0,0,0.35) !important;
-    z-index: 0 !important;
-}
-
-#creation-philosophy .section-inner {
-    position: relative !important;
-    z-index: 2 !important;
-}
-@media (max-width: 768px) {
-    #creation-philosophy .philo-bg-video {
-        opacity: 0.32 !important; /* ← これで確実に再生されやすくなる */
-    }
-}
-
-.hero {
-    position: relative;
-    width: 100vw;
-    height: 100svh;
-    overflow: hidden;
-}
-
-#heroVideo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-}
-
-@supports (-webkit-touch-callout: none) {
-    .hero {
-        height: 100svh !important;
-    }
-    #heroVideo {
-        min-width: 100vw !important;
-        min-height: 100svh !important;
-    }
-}
-
-
-
