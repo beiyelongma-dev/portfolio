@@ -579,3 +579,35 @@ html, body {
     }
 }
 
+/* =========================================
+   ★ スマホ専用：動画フィット完全修正
+   （iPhone Safari の object-fit バグ対応）
+========================================= */
+@media (max-width: 768px) {
+    #heroVideo {
+        width: 100vw !important;
+        height: 100vh !important;
+        object-fit: cover !important;
+
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+
+        min-width: 100vw !important;
+        min-height: 100vh !important;
+
+        background-color: black !important;
+    }
+
+    .hero-video-wrap {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+
+    .hero {
+        height: 100vh !important;
+        overflow: hidden !important;
+    }
+}
+
