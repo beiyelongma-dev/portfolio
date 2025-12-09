@@ -49,9 +49,11 @@
     playsinline
     webkit-playsinline
     preload="auto"
-    loop>
+    loop
+>
     <source src="video/car.mp4" type="video/mp4">
 </video>
+
 
         </div>
 
@@ -286,7 +288,29 @@
 
     });
     </script>
+        </script>
+
+    <!-- ここに入れる -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const v = document.getElementById("heroVideo");
+        v.muted = true;
+
+        const playPromise = v.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                document.addEventListener("touchstart", () => {
+                    v.play();
+                }, { once: true });
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+
 
 </body>
 </html>
+
 
