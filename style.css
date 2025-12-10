@@ -383,19 +383,60 @@ html, body {
     }
 }
 /* =========================================
-   ★ PHILOSOPHY 背景動画が見えない問題の完全修正
+   PHILOSOPHY 背景動画（完全修正版）
 ========================================= */
 
-#creation-philosophy {
-    position: relative !important;
-    z-index: 2 !important; /* ← 最前面扱い */
+/* 黒背景を完全に消す（動画が上に出るように） */
+#creation-philosophy.section-dark {
+    background: transparent !important;
+    position: relative;
+    overflow: hidden;
 }
 
+/* 背景動画コンテナ */
 #creation-philosophy .philo-bg-video {
-    z-index: 1 !important; /* ← 背景より前 */
+    position: absolute;
+    inset: 0;
+    z-index: -1;   /* テキストの下 */
+    opacity: 0.25; /* 背景動画の薄さ（好みで調整） */
+    overflow: hidden;
+    pointer-events: none;
 }
 
-#creation-philosophy::before {
-    z-index: 2 !important; /* ← 動画の上に重なる “黒い膜” */
+/* 動画の中央フィット（比率崩れ防止） */
+#creation-philosophy .philo-bg-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
 }
+
+/* オーバーレイ（暗さは控えめに） */
+#creation-philosophy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.15); /* ← 0.45 → 0.15 に弱めた */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* テキストは前面に */
+#creation-philosophy .section-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* スマホでも同じ処理（少し濃くしてもOK） */
+@media (max-width: 768px) {
+    #creation-philosophy .philo-bg-video {
+        opacity: 0.28 !important;
+    }
+}
+
 
