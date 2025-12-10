@@ -10,8 +10,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
     <!-- 背景の薄い動画 -->
@@ -42,15 +42,8 @@
 
     <!-- HERO -->
     <section class="hero">
-        <!-- ★ 重要：比率や自動再生を正しくする動画 -->
-        <video id="heroVideo"
-            autoplay
-            muted
-            playsinline
-            webkit-playsinline
-            preload="auto"
-            loop
-        >
+
+        <video id="heroVideo" autoplay muted playsinline webkit-playsinline preload="auto" loop>
             <source src="video/car.mp4" type="video/mp4">
         </video>
 
@@ -63,6 +56,7 @@
 
             <h1 id="main-title" class="fade-up-hidden">
                 RYOMA KAINO PORTFOLIO
+                <span class="shine"></span>
             </h1>
 
             <h2 id="sub-title" class="fade-up-hidden">
@@ -72,7 +66,9 @@
 
         <div class="hero-scroll">
             <span>SCROLL</span>
+            <span class="hero-scroll-line"></span>
         </div>
+
     </section>
 
     <!-- CONCEPT -->
@@ -86,11 +82,11 @@
         </div>
     </section>
 
-    <!-- PHILOSOPHY -->
+    <!-- PHILOSOPHY：背景がスライドショー版 -->
     <section id="creation-philosophy" class="section section-dark">
-        <div class="philo-bg-video">
-            <video src="video/haikei.mp4" autoplay muted loop playsinline></video>
-        </div>
+
+        <!-- 背景スライドショー -->
+        <div class="philo-bg-slideshow"></div>
 
         <div class="section-inner narrow">
             <h2 class="section-label">PHILOSOPHY</h2>
@@ -99,6 +95,7 @@
                 温度や音まで想像できる映像をつくることを大切にしています。
             </p>
         </div>
+
     </section>
 
     <!-- WORKS -->
@@ -110,7 +107,7 @@
                 <p class="section-caption">CAR VISUAL / PRODUCT / SPACE / MATERIAL</p>
             </div>
 
-            <!-- 1. CAR VISUAL -->
+            <!-- 1 CAR -->
             <article class="work-card">
                 <a href="car.html" class="work-link">
                     <div class="work-media">
@@ -121,13 +118,12 @@
                         <h3 class="work-title">都市の速度と光の粒を切り裂く一瞬</h3>
                         <p class="work-desc">
                             高速で動く車の質量感と光の軌跡をCGで再現した作品。
-                            モーションと環境光の調整に重点を置いて制作。
                         </p>
                     </div>
                 </a>
             </article>
 
-            <!-- 2. WATCH -->
+            <!-- 2 WATCH -->
             <article class="work-card">
                 <a href="watch.html" class="work-link">
                     <div class="work-media">
@@ -136,15 +132,11 @@
                     <div class="work-meta">
                         <p class="work-category">PRODUCT</p>
                         <h3 class="work-title">時間を質感で語るプロダクトCG</h3>
-                        <p class="work-desc">
-                            金属、ガラス、シャドウの繊細な表現を追求した高級腕時計CG。
-                            マテリアルづくりに重点を置いた研究的作品。
-                        </p>
                     </div>
                 </a>
             </article>
 
-            <!-- 3. INFINITE CASTLE -->
+            <!-- 3 CASTLE -->
             <article class="work-card">
                 <a href="castle.html" class="work-link">
                     <div class="work-media">
@@ -153,31 +145,23 @@
                     <div class="work-meta">
                         <p class="work-category">SPACE DESIGN</p>
                         <h3 class="work-title">空間の奥行きが物語を呼び込む</h3>
-                        <p class="work-desc">
-                            光の差し込みや床材の反射など、空間構成と陰影の効果を意識した作品。
-                        </p>
                     </div>
                 </a>
             </article>
 
-            <!-- 4. CHURCH -->
+            <!-- 4 CHURCH -->
             <article class="work-card">
                 <a href="church.html" class="work-link">
                     <div class="work-media">
                         <img src="img/church.jpg" alt="">
                     </div>
                     <div class="work-meta">
-                        <p class="work-category">SPACE VISUAL</p>
                         <h3 class="work-title">静寂の中に漂う光と陰の余韻</h3>
-                        <p class="work-desc">
-                            古い教会の重厚感と光のコントラストを表現した作品。
-                            素材感と空気感の描写にこだわって制作。
-                        </p>
                     </div>
                 </a>
             </article>
 
-            <!-- 5. PERFUME -->
+            <!-- 5 PERFUME -->
             <article class="work-card">
                 <a href="others.html" class="work-link">
                     <div class="work-media">
@@ -186,10 +170,6 @@
                     <div class="work-meta">
                         <p class="work-category">MATERIAL STUDY</p>
                         <h3 class="work-title">質感を纏わせるための実験的ショット</h3>
-                        <p class="work-desc">
-                            ガラス・金属・布といった素材の研究として制作したシーン。
-                            ライティングと反射のコントロールがテーマ。
-                        </p>
                     </div>
                 </a>
             </article>
@@ -197,7 +177,7 @@
         </div>
     </section>
 
-    <!-- PROFILE -->
+    <!-- ABOUT -->
     <section id="profile" class="section section-dark">
         <div class="section-inner narrow">
             <h2 class="section-title profile-title">ABOUT ME</h2>
@@ -210,10 +190,8 @@
                 </div>
                 <div class="profile-text">
                     <h3 class="profile-name">貝野 遼馬 / Ryoma Kaino</h3>
-                    <p>
-                        3D映像・CG制作を中心に活動。質感表現とライティングを強みに、
-                        プロダクトや空間をリアルかつ印象に残る形で描くことを目指しています。
-                    </p>
+                    <p>3D映像・CG制作を中心に活動。質感表現とライティングを強みに、
+                        プロダクトや空間をリアルかつ印象に残る形で描くことを目指しています。</p>
                 </div>
             </div>
         </div>
@@ -226,63 +204,83 @@
         </div>
     </footer>
 
-
-    <!-- ===========================================
-         JS：ロード・アニメーション・スマホ再生補助
-    ============================================ -->
+    <!-- SCRIPT -->
     <script>
-        window.addEventListener('load', () => {
+    window.addEventListener('load', () => {
 
-            const loading = document.getElementById('loading-screen');
-            const pageFade = document.getElementById('page-fade-layer');
-            loading.classList.add('hide');
-            pageFade.classList.add('hide');
+        /* ローディング解除 */
+        const loading = document.getElementById('loading-screen');
+        const pageFade = document.getElementById('page-fade-layer');
+        loading.classList.add('hide');
+        pageFade.classList.add('hide');
 
-            const isFirstVisit = !sessionStorage.getItem('visited');
-            if (isFirstVisit) {
-                document.body.classList.add('no-scroll');
-                setTimeout(() => {
-                    document.body.classList.remove('no-scroll');
-                    sessionStorage.setItem('visited', 'true');
-                }, 3000);
+        /* 初回のみスクロールロック */
+        const isFirstVisit = !sessionStorage.getItem('visited');
+        if (isFirstVisit) {
+            document.body.classList.add('no-scroll');
+            setTimeout(() => {
+                document.body.classList.remove('no-scroll');
+                sessionStorage.setItem('visited', 'true');
+            }, 3000);
+        }
+
+        /* HEROタイトル演出 */
+        const video = document.getElementById('heroVideo');
+        const eyebrow = document.querySelector('.hero-eyebrow');
+        const mainTitle = document.getElementById('main-title');
+        const subTitle = document.getElementById('sub-title');
+        const cueTime = 2.5;
+
+        video.addEventListener('timeupdate', () => {
+            if (!window._titleAppeared && video.currentTime >= cueTime) {
+                window._titleAppeared = true;
+                setTimeout(() => eyebrow.classList.add('fade-up-show'), 0);
+                setTimeout(() => mainTitle.classList.add('fade-up-show'), 500);
+                setTimeout(() => subTitle.classList.add('fade-up-show'), 1100);
             }
+        });
 
-            const video = document.getElementById('heroVideo');
-            const eyebrow = document.querySelector('.hero-eyebrow');
-            const mainTitle = document.getElementById('main-title');
-            const subTitle = document.getElementById('sub-title');
-
-            eyebrow.classList.remove('fade-up-show');
-            mainTitle.classList.remove('fade-up-show');
-            subTitle.classList.remove('fade-up-show');
-
-            video.addEventListener('timeupdate', () => {
-                if (!window._titleAppeared && video.currentTime >= 2.5) {
-                    window._titleAppeared = true;
-
-                    setTimeout(() => { eyebrow.classList.add('fade-up-show'); }, 0);
-                    setTimeout(() => { mainTitle.classList.add('fade-up-show'); }, 500);
-                    setTimeout(() => { subTitle.classList.add('fade-up-show'); }, 1100);
-                }
+        /* HERO自動再生フォールバック（iPhone対策） */
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                document.addEventListener("touchstart", () => {
+                    video.play();
+                }, { once: true });
             });
-        });
-    </script>
+        }
 
-    <!-- ★スマホ自動再生フォールバック -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const v = document.getElementById("heroVideo");
-            v.muted = true;
+        /* PHILOSOPHYスライドショー */
+        const philoWrap = document.querySelector('.philo-bg-slideshow');
+        if (philoWrap) {
 
-            const p = v.play();
-            if (p !== undefined) {
-                p.catch(() => {
-                    document.addEventListener("touchstart", () => {
-                        v.play();
-                    }, { once: true });
-                });
-            }
-        });
+            const slideImages = [
+                'img/car_frame_0209.jpg',
+                'img/watch.jpg',
+                'img/infinite_castle.jpg',
+                'img/church.jpg',
+                'img/perfume.jpg'
+            ];
+
+            slideImages.forEach((src, index) => {
+                const layer = document.createElement('div');
+                layer.className = 'philo-bg-slide';
+                layer.style.backgroundImage = `url('${src}')`;
+                if (index === 0) layer.classList.add('is-active');
+                philoWrap.appendChild(layer);
+            });
+
+            const slides = philoWrap.querySelectorAll('.philo-bg-slide');
+            let current = 0;
+
+            setInterval(() => {
+                slides[current].classList.remove('is-active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('is-active');
+            }, 6000);
+        }
+
+    });
     </script>
 
 </body>
