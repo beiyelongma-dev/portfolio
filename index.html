@@ -5,281 +5,301 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RYOMA KAINO PORTFOLIO</title>
 
+    <!-- Tailwind CSS (ユーティリティクラスの補助として使用) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- フォント -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <!-- 背景の薄い動画 -->
-    <div class="bg-video-layer">
-        <video src="video/car_break.mp4" autoplay muted loop playsinline></video>
-    </div>
-
-    <!-- ページフェード -->
-    <div id="page-fade-layer"></div>
-
-    <!-- ローディング -->
-    <div id="loading-screen">LOADING...</div>
-
-    <!-- ヘッダー -->
-    <header class="site-header">
-        <div class="header-inner">
-            <a href="#" class="logo">
-                <span class="logo-main">RYOMA KAINO</span>
-                <span class="logo-sub">PORTFOLIO</span>
-            </a>
-            <nav class="main-nav">
-                <a href="#works">WORKS</a>
-                <a href="#about-portfolio">CONCEPT</a>
-                <a href="#profile">ABOUT</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-
-        <div class="hero-video-wrap">
-            <video id="heroVideo" autoplay muted playsinline>
-                <source src="video/car.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-text">
-            <p class="hero-eyebrow fade-up-hidden">
-                VISUAL CREATION / CG / MOTION
-            </p>
-
-            <h1 id="main-title" class="fade-up-hidden">
-                RYOMA KAINO PORTFOLIO
-                <span class="shine"></span>
-            </h1>
-
-            <h2 id="sub-title" class="fade-up-hidden">
-                CAR × PRODUCT × SPACE VISUALS
-            </h2>
-        </div>
-
-        <div class="hero-scroll">
-            <span>SCROLL</span>
-            <span class="hero-scroll-line"></span>
-        </div>
-
-    </section>
-
-    <!-- CONCEPT -->
-    <section id="about-portfolio" class="section section-light">
-        <div class="section-inner narrow">
-            <h2 class="section-label">CONCEPT</h2>
-            <p class="lead-text">
-                光と影, 質感と空気を軸に映像を制作しています。高速で動くものの一瞬を切り取り,
-                丁寧な構図とマテリアル表現で世界観を形にしています。
-            </p>
-        </div>
-    </section>
-
-    <!-- PHILOSOPHY -->
-    <section id="creation-philosophy" class="section section-dark">
-
-        <!-- 背景動画 -->
-        <div class="philo-bg-video">
-            <video src="video/haikei.mp4" autoplay muted loop playsinline></video>
-        </div>
-
-        <div class="section-inner narrow">
-            <h2 class="section-label">PHILOSOPHY</h2>
-            <p class="lead-text">
-                光, 影, 質感, 空気。小さな要素を積み重ねることで,
-                温度や音まで想像できる映像をつくることを大切にしています。
-            </p>
-        </div>
-
-    </section>
-
-    <!-- WORKS -->
-    <section id="works" class="section section-light">
-        <div class="section-inner wide">
-
-            <div class="section-header">
-                <h2 class="section-title">WORKS</h2>
-                <p class="section-caption">CAR VISUAL / PRODUCT / SPACE / MATERIAL</p>
-            </div>
-
-            <!-- 1. CAR VISUAL -->
-            <article class="work-card">
-                <a href="car.html" class="work-link">
-                    <div class="work-media">
-                        <img src="img/car_frame_0209.jpg" alt="">
-                    </div>
-                    <div class="work-meta">
-                        <p class="work-category">CAR VISUAL</p>
-                        <h3 class="work-title">都市の速度と光の粒を切り裂く一瞬</h3>
-                        <p class="work-desc">
-                            高速で動く車の質量感と光の軌跡をCGで再現した作品。
-                            モーションと環境光の調整に重点を置いて制作。
-                        </p>
-                    </div>
-                </a>
-            </article>
-
-            <!-- 2. WATCH -->
-            <article class="work-card">
-                <a href="watch.html" class="work-link">
-                    <div class="work-media">
-                        <img src="img/watch.jpg" alt="">
-                    </div>
-                    <div class="work-meta">
-                        <p class="work-category">PRODUCT</p>
-                        <h3 class="work-title">時間を質感で語るプロダクトCG</h3>
-                        <p class="work-desc">
-                            金属、ガラス、シャドウの繊細な表現を追求した高級腕時計CG。
-                            マテリアルづくりに重点を置いた研究的作品。
-                        </p>
-                    </div>
-                </a>
-            </article>
-
-            <!-- 3. INFINITE CASTLE -->
-            <article class="work-card">
-                <a href="castle.html" class="work-link">
-                    <div class="work-media">
-                        <img src="img/infinite_castle.jpg" class="tall-img" alt="">
-                    </div>
-                    <div class="work-meta">
-                        <p class="work-category">SPACE DESIGN</p>
-                        <h3 class="work-title">空間の奥行きが物語を呼び込む</h3>
-                        <p class="work-desc">
-                            光の差し込みや床材の反射など、空間構成と陰影の効果を意識した作品。
-                        </p>
-                    </div>
-                </a>
-            </article>
-
-            <!-- 4. CHURCH -->
-            <article class="work-card">
-                <a href="church.html" class="work-link">
-                    <div class="work-media">
-                        <img src="img/church.jpg" alt="">
-                    </div>
-                    <div class="work-meta">
-                        <p class="work-category">SPACE VISUAL</p>
-                        <h3 class="work-title">静寂の中に漂う光と陰の余韻</h3>
-                        <p class="work-desc">
-                            古い教会の重厚感と光のコントラストを表現した作品。
-                            素材感と空気感の描写にこだわって制作。
-                        </p>
-                    </div>
-                </a>
-            </article>
-
-            <!-- 5. PERFUME -->
-            <article class="work-card">
-                <a href="others.html" class="work-link">
-                    <div class="work-media">
-                        <img src="img/perfume.jpg" class="tall-img" alt="">
-                    </div>
-                    <div class="work-meta">
-                        <p class="work-category">MATERIAL STUDY</p>
-                        <h3 class="work-title">質感を纏わせるための実験的ショット</h3>
-                        <p class="work-desc">
-                            ガラス・金属・布といった素材の研究として制作したシーン。
-                            ライティングと反射のコントロールがテーマ。
-                        </p>
-                    </div>
-                </a>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- PROFILE -->
-    <section id="profile" class="section section-dark">
-        <div class="section-inner narrow">
-            <h2 class="section-title profile-title">ABOUT ME</h2>
-
-            <div class="profile-box">
-                <div class="profile-img">
-                    <div class="profile-img-frame">
-                        <img src="img/profile.jpg" alt="">
-                    </div>
-                </div>
-                <div class="profile-text">
-                    <h3 class="profile-name">貝野 遼馬 / Ryoma Kaino</h3>
-                    <p>
-                        3D映像・CG制作を中心に活動。質感表現とライティングを強みに、
-                        プロダクトや空間をリアルかつ印象に残る形で描くことを目指しています。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- フッター -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <p class="footer-copy">© RYOMA KAINO PORTFOLIO</p>
-        </div>
-    </footer>
-
-    <!-- SCRIPT =========================================== -->
-    <script>
-    window.addEventListener('load', () => {
-
-        /* ① ローディング解除 */
-        const loading = document.getElementById('loading-screen');
-        const pageFade = document.getElementById('page-fade-layer');
-        loading.classList.add('hide');
-        pageFade.classList.add('hide');
-
-        /* ② 初回訪問だけスクロール禁止 */
-        const isFirstVisit = !sessionStorage.getItem('visited');
-        if (isFirstVisit) {
-            document.body.classList.add('no-scroll');
-
-            const scrollLockTime = 3.0;
-            setTimeout(() => {
-                document.body.classList.remove('no-scroll');
-                sessionStorage.setItem('visited', 'true');
-            }, scrollLockTime * 1000);
+    <!-- CSS (すべてのスタイルがここに統合されています) -->
+    <style>
+        /* =========================================
+           基本設定
+        ========================================= */
+        :root {
+            --bg-black: #050608;
+            --bg-deep: #080a0f;
+            --text-main: #f6f6f6;
+            --text-muted: #a2a2a7;
+            --accent-gold: #c9a36c;
+            --accent-gold-soft: rgba(201,163,108,0.3);
+            --border-soft: rgba(255,255,255,0.08);
+            --section-light-bg: #0c0e13;
+            --section-dark-bg: #05060a;
+            --max-width-narrow: 900px;
+            --max-width-wide: 1180px;
         }
 
-        /* ③ タイトル演出（2.5秒で発火） */
-        const video = document.getElementById('heroVideo');
-        const eyebrow = document.querySelector('.hero-eyebrow');
-        const mainTitle = document.getElementById('main-title');
-        const subTitle = document.getElementById('sub-title');
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
-        const cueTime = 2.5;
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg-black);
+            color: var(--text-main);
+            font-family: "Noto Sans JP", sans-serif;
+            line-height: 1.7; 
+        }
 
-        eyebrow.classList.remove('fade-up-show');
-        mainTitle.classList.remove('fade-up-show');
-        subTitle.classList.remove('fade-up-show');
+        /* スクロール禁止時 */
+        .no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
 
-        video.addEventListener('timeupdate', () => {
-            if (!window._titleAppeared && video.currentTime >= cueTime) {
+        /* =========================================
+           背景動画レイヤー（薄い装飾）
+        ========================================= */
+        .bg-video-layer {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+            opacity: 0.16;
+            background-color: var(--bg-black); 
+        }
+        .bg-video-layer video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-                window._titleAppeared = true;
+        /* ページフェード */
+        #page-fade-layer {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top, #101321 0%, #050609 55%, #020207 100%);
+            z-index: 1000; 
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+        #page-fade-layer.hide {
+            opacity: 0;
+        }
 
-                setTimeout(() => { eyebrow.classList.add('fade-up-show'); }, 0);
-                setTimeout(() => { mainTitle.classList.add('fade-up-show'); }, 500);
-                setTimeout(() => { subTitle.classList.add('fade-up-show'); }, 1100);
+        /* =========================================
+           ローディング
+        ========================================= */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #050609;
+            color: var(--text-main);
+            letter-spacing: 0.35em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999; 
+            transition: opacity 0.6s ease;
+            font-family: "Playfair Display", serif;
+        }
+        #loading-screen.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* =========================================
+           ヘッダー
+        ========================================= */
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 68px;
+            background: rgba(8,10,15,0.9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px); 
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .header-inner {
+            max-width: var(--max-width-wide);
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-main {
+            font-family: "Playfair Display", serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.22em;
+        }
+        .logo-sub {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 28px;
+        }
+        .main-nav a {
+            color: var(--text-muted);
+            font-family: "Playfair Display", serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.22em;
+            text-decoration: none;
+            padding-bottom: 3px;
+            position: relative;
+            transition: 0.25s ease;
+        }
+        .main-nav a:hover {
+            color: var(--text-main);
+        }
+        .main-nav a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background: var(--accent-gold);
+            transition: width 0.25s ease;
+        }
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================================
+           HERO（PC・スマホ共通）
+        ========================================= */
+        .hero {
+            position: relative;
+            width: 100vw;
+            height: 100svh;     
+            overflow: hidden;
+            background: #050609;
+        }
+
+        #heroVideo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            z-index: 1; 
+        }
+        
+        /* 動画の上にオーバーレイを追加してテキストの可読性を上げる */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+
+        /* iOS Safari fix */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                height: 100svh !important;
             }
-        });
+            #heroVideo {
+                min-width: 100vw !important;
+                min-height: 100svh !important;
+            }
+        }
 
-        /* ④ 動画終了で静止 */
-        video.addEventListener('ended', () => {
-            video.pause();
-            video.currentTime = video.duration;
-        });
+        /* タイトル配置 */
+        .hero-text {
+            position: relative;
+            z-index: 3; 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 24px;
+            max-width: var(--max-width-wide);
+            margin: 0 auto;
+        }
 
-    });
-    </script>
+        .hero-eyebrow {
+            font-family: "Playfair Display", serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.35em;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+        }
 
-</body>
-</html>
+        #main-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            letter-spacing: 0.28em;
+            margin: 0 0 10px;
+            position: relative;
+            display: inline-block; 
+        }
+        
+        /* タイトル光沢エフェクトのCSS */
+        #main-title .shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: translateX(-120%);
+            mix-blend-mode: overlay; 
+            opacity: 0.8;
+            transition: transform 1.5s ease-out 1.5s;
+        }
+        .fade-up-show#main-title .shine {
+            transform: translateX(120%);
+        }
+
+        #sub-title {
+            font-size: 0.9rem;
+            letter-spacing: 0.32em;
+            color: var(--text-muted);
+        }
+        
+        /* テキストフェードアップアニメーション */
+        .fade-up-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .fade-up-show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================
+           SCROLL
+        ========================================= */
+        .hero-scroll {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.28em;
+            z-index: 3;
