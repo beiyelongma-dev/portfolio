@@ -10,8 +10,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-</head>
 
+</head>
 <body>
 
     <!-- 背景の薄い動画 -->
@@ -40,10 +40,9 @@
         </div>
     </header>
 
-   <!-- HERO -->
-<section class="hero">
-
-    <div class="hero-video-wrap">
+    <!-- HERO -->
+    <section class="hero">
+        <!-- ★ 重要：比率や自動再生を正しくする動画 -->
         <video id="heroVideo"
             autoplay
             muted
@@ -54,32 +53,27 @@
         >
             <source src="video/car.mp4" type="video/mp4">
         </video>
-    </div>
 
-    <div class="hero-overlay"></div>
+        <div class="hero-overlay"></div>
 
-    <div class="hero-text">
-        <p class="hero-eyebrow fade-up-hidden">
-            VISUAL CREATION / CG / MOTION
-        </p>
+        <div class="hero-text">
+            <p class="hero-eyebrow fade-up-hidden">
+                VISUAL CREATION / CG / MOTION
+            </p>
 
-        <h1 id="main-title" class="fade-up-hidden">
-            RYOMA KAINO PORTFOLIO
-            <span class="shine"></span>
-        </h1>
+            <h1 id="main-title" class="fade-up-hidden">
+                RYOMA KAINO PORTFOLIO
+            </h1>
 
-        <h2 id="sub-title" class="fade-up-hidden">
-            CAR × PRODUCT × SPACE VISUALS
-        </h2>
-    </div>
+            <h2 id="sub-title" class="fade-up-hidden">
+                CAR × PRODUCT × SPACE VISUALS
+            </h2>
+        </div>
 
-    <div class="hero-scroll">
-        <span>SCROLL</span>
-        <span class="hero-scroll-line"></span>
-    </div>
-
-</section>
-
+        <div class="hero-scroll">
+            <span>SCROLL</span>
+        </div>
+    </section>
 
     <!-- CONCEPT -->
     <section id="about-portfolio" class="section section-light">
@@ -94,8 +88,6 @@
 
     <!-- PHILOSOPHY -->
     <section id="creation-philosophy" class="section section-dark">
-
-        <!-- 背景動画 -->
         <div class="philo-bg-video">
             <video src="video/haikei.mp4" autoplay muted loop playsinline></video>
         </div>
@@ -107,7 +99,6 @@
                 温度や音まで想像できる映像をつくることを大切にしています。
             </p>
         </div>
-
     </section>
 
     <!-- WORKS -->
@@ -235,83 +226,64 @@
         </div>
     </footer>
 
-    <!-- SCRIPT =========================================== -->
+
+    <!-- ===========================================
+         JS：ロード・アニメーション・スマホ再生補助
+    ============================================ -->
     <script>
-    window.addEventListener('load', () => {
+        window.addEventListener('load', () => {
 
-        /* ① ローディング解除 */
-        const loading = document.getElementById('loading-screen');
-        const pageFade = document.getElementById('page-fade-layer');
-        loading.classList.add('hide');
-        pageFade.classList.add('hide');
+            const loading = document.getElementById('loading-screen');
+            const pageFade = document.getElementById('page-fade-layer');
+            loading.classList.add('hide');
+            pageFade.classList.add('hide');
 
-        /* ② 初回訪問だけスクロール禁止 */
-        const isFirstVisit = !sessionStorage.getItem('visited');
-        if (isFirstVisit) {
-            document.body.classList.add('no-scroll');
+            const isFirstVisit = !sessionStorage.getItem('visited');
+            if (isFirstVisit) {
+                document.body.classList.add('no-scroll');
+                setTimeout(() => {
+                    document.body.classList.remove('no-scroll');
+                    sessionStorage.setItem('visited', 'true');
+                }, 3000);
+            }
 
-            const scrollLockTime = 3.0;
-            setTimeout(() => {
-                document.body.classList.remove('no-scroll');
-                sessionStorage.setItem('visited', 'true');
-            }, scrollLockTime * 1000);
-        }
+            const video = document.getElementById('heroVideo');
+            const eyebrow = document.querySelector('.hero-eyebrow');
+            const mainTitle = document.getElementById('main-title');
+            const subTitle = document.getElementById('sub-title');
 
-        /* ③ タイトル演出（2.5秒で発火） */
-        const video = document.getElementById('heroVideo');
-        const eyebrow = document.querySelector('.hero-eyebrow');
-        const mainTitle = document.getElementById('main-title');
-        const subTitle = document.getElementById('sub-title');
+            eyebrow.classList.remove('fade-up-show');
+            mainTitle.classList.remove('fade-up-show');
+            subTitle.classList.remove('fade-up-show');
 
-        const cueTime = 2.5;
+            video.addEventListener('timeupdate', () => {
+                if (!window._titleAppeared && video.currentTime >= 2.5) {
+                    window._titleAppeared = true;
 
-        eyebrow.classList.remove('fade-up-show');
-        mainTitle.classList.remove('fade-up-show');
-        subTitle.classList.remove('fade-up-show');
+                    setTimeout(() => { eyebrow.classList.add('fade-up-show'); }, 0);
+                    setTimeout(() => { mainTitle.classList.add('fade-up-show'); }, 500);
+                    setTimeout(() => { subTitle.classList.add('fade-up-show'); }, 1100);
+                }
+            });
+        });
+    </script>
 
-        video.addEventListener('timeupdate', () => {
-            if (!window._titleAppeared && video.currentTime >= cueTime) {
+    <!-- ★スマホ自動再生フォールバック -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const v = document.getElementById("heroVideo");
+            v.muted = true;
 
-                window._titleAppeared = true;
-
-                setTimeout(() => { eyebrow.classList.add('fade-up-show'); }, 0);
-                setTimeout(() => { mainTitle.classList.add('fade-up-show'); }, 500);
-                setTimeout(() => { subTitle.classList.add('fade-up-show'); }, 1100);
+            const p = v.play();
+            if (p !== undefined) {
+                p.catch(() => {
+                    document.addEventListener("touchstart", () => {
+                        v.play();
+                    }, { once: true });
+                });
             }
         });
-
-        /* ④ 動画終了で静止 */
-        video.addEventListener('ended', () => {
-            video.pause();
-            video.currentTime = video.duration;
-        });
-
-    });
     </script>
-        </script>
-
-    <!-- ここに入れる -->
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const v = document.getElementById("heroVideo");
-        v.muted = true;
-
-        const playPromise = v.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {
-                document.addEventListener("touchstart", () => {
-                    v.play();
-                }, { once: true });
-            });
-        }
-    });
-    </script>
-</body>
-</html>
-
 
 </body>
 </html>
-
-
-
