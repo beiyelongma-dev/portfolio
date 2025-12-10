@@ -382,3 +382,20 @@ html, body {
         padding: 60px 20px;
     }
 }
+/* =========================================
+   ★ PHILOSOPHY 背景動画が見えない問題の完全修正
+========================================= */
+
+#creation-philosophy {
+    position: relative !important;
+    z-index: 2 !important; /* ← 最前面扱い */
+}
+
+#creation-philosophy .philo-bg-video {
+    z-index: 1 !important; /* ← 背景より前 */
+}
+
+#creation-philosophy::before {
+    z-index: 2 !important; /* ← 動画の上に重なる “黒い膜” */
+}
+
